@@ -4,7 +4,7 @@ require_once 'PreparationREQ.php';
 
 try {
 
-$db = new MyPDO('mysql:host=mysql1.alwaysdata.com;dbname=rdelaporte_nerdz','rdelaporte_nerdz','squateur');
+$db = new MyPDO('mysql:host=mysql1.alwaysdata.com;dbname=rdelaporte_nerdz','90305_robin','squateur');
 echo "Connexion reussie\n\n";
 
 
