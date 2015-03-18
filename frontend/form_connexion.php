@@ -1,48 +1,31 @@
 <?php
-$identifiant=$_POST['username'];
-$mot_de_passe=$_POST['password'];
-require_once ''
-
-try
-{
-    $bdd = new PDO($host, $user, $password);
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-
-
-$pass_hache = sha1($mot_de_passe);
-$req = $bdd->prepare('SELECT Numero FROM avocats WHERE Identifiant = :Ident AND mot_de_passe = :pass');
+include 'core/head.php';
+$identifiant=$_POST['Username'];
+$mot_de_passe=$_POST['Password'];
+require_once 'Traitement.php';
+include 'core/header.php';
+include 'core/navbar.php';
+$req = $db->prepare('SELECT id FROM Patients WHERE nom = :utilisateur AND prenom = :pass');
 $req->execute(array(
-    'Ident' => $identifiant,
-    'pass' => $pass_hache));
+    'utilisateur' => $identifiant,
+    /*'pass' => $pass_hache*/
+    'pass' => $mot_de_passe));
 
 $resultat = $req->fetch();
 
 if (!$resultat)
 {
-    header('location:erreur_connexion.php');
-    //echo $pass_hache;
+    print 'Erreur de mot de passe ou de login';
+    ?>
+    <a href="index.php">retour</a>
+    <?php
 }
 else
 {
     session_start();
-    $_SESSION['numero'] = $resultat['Numero'];
-    $_SESSION['identifiant'] = $_POST['identifiant'];
-    $identifiant = $_SESSION['identifiant'];
-    include ('calcul_temps.php');
-    $date = date("Y-m-d H:i:s");
-
-    $req = $bdd->prepare('UPDATE avocats SET avantderniere_connexion = Derniere_connexion  WHERE Identifiant = :Ident ');
-    $req->execute(array(
-        'Ident' => $identifiant));
-
-    $req = $bdd->prepare('UPDATE avocats SET Derniere_connexion = NOW()  WHERE Identifiant = :Ident ');
-    $req->execute(array(
-        'Ident' => $identifiant));
-
-    header('location:redirection_premiere.php');
-
+    ?>
+    <a href="index.php">retour</a>
+    <?php
+    $_SESSION['id'] = $resultat['id'];
 }
+include 'core/footer.php';

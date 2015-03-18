@@ -33,10 +33,10 @@
                 </ul>
                 <form class="navbar-form navbar-right" role="search" action="form_connexion.php" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <input type="text" class="form-control" name="Username" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="Password" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-default">Sign In</button>
                 </form>

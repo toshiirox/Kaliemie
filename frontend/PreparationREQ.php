@@ -7,7 +7,6 @@ class PreparationREQ
     private $ReqSelectAll;
     private $ReqInsert;
     private $ReqTruncate;
-	private $ReqConnection;
 
 
     public function __construct($db)
@@ -23,19 +22,11 @@ class PreparationREQ
 		$this->ReqInsert = $db->prepare("INSERT INTO user(name, password) VALUES (:name, :password)");
 		
        $this->ReqTruncate = $db->prepare("TRUNCATE user");
-	   
-	   $this->ReqConnection = $db->prepare("SELECT login, password FROM   WHERE login = :login AND password = :password");
+
 	   
     }
 
 //M�thodes publiques qui ex�cuteront les requ�tes d�j� pr�par�es dans le constructeur.
-    public function connect()
-    {
-
-        $this->ReqConnection->execute($q);
-        $count = $db->rowCount($this->ReqConnection);
-    }
-
 
 	public function insert($name, $password)
     {

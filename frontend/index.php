@@ -1,8 +1,8 @@
 <!DOCTYPE php>
 <html lang="fr">
 <?php include("core/head.php"); ?>
-
 <body>
+<?php include 'verifconnexion.php'?>
 <?php include("core/navbar.php"); ?>
 <!-- Header -->
 <?php include("core/header.php"); ?>
