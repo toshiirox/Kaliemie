@@ -31,7 +31,7 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" role="search" action="form_connexion.php" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" name="username" placeholder="Username">
                     </div>
