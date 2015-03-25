@@ -1,4 +1,4 @@
 <?php
-header('Location: /frontend/index.php');
+header('Location: /Kaliemie/frontend/');
 exit();
 ?>
