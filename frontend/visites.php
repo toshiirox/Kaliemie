@@ -1,13 +1,12 @@
 <?php
 require_once 'Traitement.php';
 $id = $_SESSION['id'];
-$req = $db->prepare('SELECT * FROM ActesVisites O, Visites V, Actes A, Infirmieres I, patient P WHERE O.idVisite=V.id AND O.idActes=A.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id GROUP BY P.nom;
-');
+$req = $db->prepare('SELECT * FROM Visites V, ActesVisites O, Actes A, Infirmieres I, patient P WHERE O.idVisite=V.id AND O.idActes=A.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id');
 $req->execute(array('id' => $id));
 $resultat = $req->fetch();
 $resultat['P.nom'];
 if (!$resultat) {
-    print 'Ta requete marche pas, ducon!';
+    print 'Ta requete marche pas';
 } else {
 
     foreach ($resultat as $r) {
