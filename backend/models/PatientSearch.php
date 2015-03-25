@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Patients;
+use app\models\Patient;
 
 /**
- * PatientsSearch represents the model behind the search form about `app\models\Patients`.
+ * PatientSearch represents the model behind the search form about `app\models\Patient`.
  */
-class PatientsSearch extends Patients
+class PatientSearch extends Patient
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PatientsSearch extends Patients
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['nom', 'prenom', 'adresse'], 'safe'],
+            [['identifiant'], 'integer'],
+            [['nom', 'prenom', 'adresse', 'codePostal', 'ville', 'telephone', 'dateNaiss', 'commentaireVisite'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PatientsSearch extends Patients
      */
     public function search($params)
     {
-        $query = Patients::find();
+        $query = Patient::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,12 +56,17 @@ class PatientsSearch extends Patients
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
+            'identifiant' => $this->identifiant,
+            'dateNaiss' => $this->dateNaiss,
         ]);
 
         $query->andFilterWhere(['like', 'nom', $this->nom])
             ->andFilterWhere(['like', 'prenom', $this->prenom])
-            ->andFilterWhere(['like', 'adresse', $this->adresse]);
+            ->andFilterWhere(['like', 'adresse', $this->adresse])
+            ->andFilterWhere(['like', 'codePostal', $this->codePostal])
+            ->andFilterWhere(['like', 'ville', $this->ville])
+            ->andFilterWhere(['like', 'telephone', $this->telephone])
+            ->andFilterWhere(['like', 'commentaireVisite', $this->commentaireVisite]);
 
         return $dataProvider;
     }

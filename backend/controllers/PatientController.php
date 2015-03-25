@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Patients;
-use app\models\PatientsSearch;
+use app\models\Patient;
+use app\models\PatientSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PatientsController implements the CRUD actions for Patients model.
+ * PatientController implements the CRUD actions for Patient model.
  */
-class PatientsController extends Controller
+class PatientController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PatientsController extends Controller
     }
 
     /**
-     * Lists all Patients models.
+     * Lists all Patient models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PatientsSearch();
+        $searchModel = new PatientSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PatientsController extends Controller
     }
 
     /**
-     * Displays a single Patients model.
+     * Displays a single Patient model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class PatientsController extends Controller
     }
 
     /**
-     * Creates a new Patients model.
+     * Creates a new Patient model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Patients();
+        $model = new Patient();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->identifiant]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class PatientsController extends Controller
     }
 
     /**
-     * Updates an existing Patients model.
+     * Updates an existing Patient model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class PatientsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->identifiant]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class PatientsController extends Controller
     }
 
     /**
-     * Deletes an existing Patients model.
+     * Deletes an existing Patient model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class PatientsController extends Controller
     }
 
     /**
-     * Finds the Patients model based on its primary key value.
+     * Finds the Patient model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Patients the loaded model
+     * @return Patient the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Patients::findOne($id)) !== null) {
+        if (($model = Patient::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
