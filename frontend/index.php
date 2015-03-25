@@ -38,7 +38,7 @@
     <?php
     if (isset( $_SESSION['id'])) {
        //include 'visites';
-        echo 'banane';
+        include 'visites.php';
     }
     else {
         ?>

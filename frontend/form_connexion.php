@@ -16,8 +16,8 @@ if (!$resultat)
 {
     print 'Erreur de mot de passe ou de login';
     ?>
-	<a href="">retour</a>
-    <?php
+    <a href="">retour</a>
+<?php
 }
 else
 {
