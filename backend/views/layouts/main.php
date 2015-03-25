@@ -45,6 +45,9 @@ AppAsset::register($this);
                         ['label' => 'Actes/Visites', 'url' => ['/site/login']] :
                     ['label' => 'Actes/Visites', 'url' => ['/actes-visites/index']],
                     Yii::$app->user->isGuest ?
+                        ['label' => 'Infirmières', 'url' => ['/site/login']] :
+                        ['label' => 'Infirmières', 'url' => ['/infirmieres/index']],
+                    Yii::$app->user->isGuest ?
                         ['label' => 'Capacitées', 'url' => ['/site/login']] :
                     ['label' => 'Capacitées', 'url' => ['/capacite/index']],
                     Yii::$app->user->isGuest ?
