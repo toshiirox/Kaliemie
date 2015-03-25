@@ -18,8 +18,8 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
 		"thiagotalma/yii2-fullcalendar": "*",
-        "yiisoft/yii2-swiftmailer": "*",
-		 "philippfrenzel/yii2fullcalendar":"*"
+        "yiisoft/yii2-swiftmailer": "*"
+
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
