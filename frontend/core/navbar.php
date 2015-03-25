@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+    <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
@@ -31,15 +31,28 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search" action="form_connexion.php" method="post">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="Username" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="Password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-default">Sign In</button>
-                </form>
+                <?php
+                if (isset( $_SESSION['id'])) {
+                    ?>
+                    <form class="navbar-form navbar-right" role="search" action="deconnexion.php" method="post">
+                        <button type="submit" class="btn btn-default">Déconnexion</button>
+                    </form>
+                <?php
+                }
+                else{
+                    ?>
+                    <form class="navbar-form navbar-right" role="search" action="form_connexion.php" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="Username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="Password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-default">Sign In</button>
+                    </form>
+                <?php
+                }
+                ?>
             </div>
         </center>
     </div>
