@@ -32,14 +32,13 @@
                     </li>
                 </ul>
                 <?php
-                if (isset( $_SESSION['id'])) {
+                if (isset($_SESSION['id'])) {
                     ?>
                     <form class="navbar-form navbar-right" role="search" action="deconnexion.php" method="post">
                         <button type="submit" class="btn btn-default">Déconnexion</button>
                     </form>
                 <?php
-                }
-                else{
+                } else {
                     ?>
                     <form class="navbar-form navbar-right" role="search" action="form_connexion.php" method="post">
                         <div class="form-group">
