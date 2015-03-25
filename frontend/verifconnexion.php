@@ -1,11 +1,8 @@
 <?php
-if (isset( $_SESSION['id']))
-{
+if (isset($_SESSION['id'])) {
 
     print $_SESSION['id'];
-}
-else
-{
+} else {
     print 'pas de connexion';
 }
 ?>

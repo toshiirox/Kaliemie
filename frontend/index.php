@@ -3,7 +3,7 @@
 <?php session_start(); ?>
 <?php include("core/head.php"); ?>
 <body>
-<?php include 'verifconnexion.php'?>
+<?php include 'verifconnexion.php' ?>
 <?php include("core/navbar.php"); ?>
 <!-- Header -->
 <?php include("core/header.php"); ?>
@@ -15,9 +15,9 @@
         <div class="col-lg-12">
             <h1 class="page-header">
             </h1>
+
             <p>YOLO!!!!</p>
         </div>
-
 
 
     </div>
@@ -36,11 +36,10 @@
     <hr>
 
     <?php
-    if (isset( $_SESSION['id'])) {
-       //include 'visites';
+    if (isset($_SESSION['id'])) {
+        //include 'visites';
         include 'visites.php';
-    }
-    else {
+    } else {
         ?>
         <!-- Call to Action Section -->
         <div class="well">
