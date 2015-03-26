@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Actes;
+use app\models\Soins;
 
 /**
- * ActesSearch represents the model behind the search form about `app\models\Actes`.
+ * SoinsSearch represents the model behind the search form about `app\models\Soins`.
  */
-class ActesSearch extends Actes
+class SoinsSearch extends Soins
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ActesSearch extends Actes
     public function rules()
     {
         return [
-            [['id', 'duree'], 'integer'],
-            [['libellee', 'description'], 'safe'],
+            [['id', 'id_type_soins'], 'integer'],
+            [['libel', 'description', 'date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ActesSearch extends Actes
      */
     public function search($params)
     {
-        $query = Actes::find();
+        $query = Soins::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,10 +57,11 @@ class ActesSearch extends Actes
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'duree' => $this->duree,
+            'id_type_soins' => $this->id_type_soins,
+            'date' => $this->date,
         ]);
 
-        $query->andFilterWhere(['like', 'libellee', $this->libellee])
+        $query->andFilterWhere(['like', 'libel', $this->libel])
             ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;

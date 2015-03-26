@@ -40,7 +40,7 @@ AppAsset::register($this);
                     ['label' => 'Patients', 'url' => ['/patient/index']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Actes', 'url' => ['/site/login']] :
-                    ['label' => 'Actes', 'url' => ['/actes/index']],
+                    ['label' => 'Actes', 'url' => ['/soins/index']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Actes/Visites', 'url' => ['/site/login']] :
                     ['label' => 'Actes/Visites', 'url' => ['/actes-visites/index']],
@@ -76,8 +76,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-left">&copy; Kaliémie <?= date('Y') ?></p>
         </div>
     </footer>
 

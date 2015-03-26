@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Actes;
-use app\models\ActesSearch;
+use app\models\Soins;
+use app\models\SoinsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ActesController implements the CRUD actions for Actes model.
+ * SoinsController implements the CRUD actions for Soins model.
  */
-class ActesController extends Controller
+class SoinsController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class ActesController extends Controller
     }
 
     /**
-     * Lists all Actes models.
+     * Lists all Soins models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ActesSearch();
+        $searchModel = new SoinsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class ActesController extends Controller
     }
 
     /**
-     * Displays a single Actes model.
+     * Displays a single Soins model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class ActesController extends Controller
     }
 
     /**
-     * Creates a new Actes model.
+     * Creates a new Soins model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Actes();
+        $model = new Soins();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class ActesController extends Controller
     }
 
     /**
-     * Updates an existing Actes model.
+     * Updates an existing Soins model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class ActesController extends Controller
     }
 
     /**
-     * Deletes an existing Actes model.
+     * Deletes an existing Soins model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class ActesController extends Controller
     }
 
     /**
-     * Finds the Actes model based on its primary key value.
+     * Finds the Soins model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Actes the loaded model
+     * @return Soins the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Actes::findOne($id)) !== null) {
+        if (($model = Soins::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
