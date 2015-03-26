@@ -52,7 +52,7 @@ else {
             <td>
                 <?php
 
-                if ($voiddatedeb="") {
+                if ($voiddatedeb=="") {
                     echo $r["DateDebut"];
                     $voiddatedeb = $r["DateDebut"];
                 }
@@ -67,7 +67,7 @@ else {
             <td>
                 <?php
 
-                if ($voiddatefin="") {
+                if ($voiddatefin=="") {
                     echo $r["DateFin"];
                     $voiddatefin = $r["DateFin"];
                 }
