@@ -3,28 +3,36 @@ require_once 'Traitement.php';
 $id = $_SESSION['id'];
 $req = $db->prepare('SELECT * FROM Visites V, ActesVisites O, Actes A, Infirmieres I, patient P WHERE O.idVisite=V.id AND O.idActes=A.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id');
 $req->execute(array('id' => $id));
-$resultat = $req->fetch();
-$resultat['P.nom'];
+$resultat = $req->fetchAll();
+?>
+    <table>
+    <caption>Interventions</caption>
+    <tr>
+        <th>Nom du client :</th>
+        <th>Intervention(s) :</th>
+        <th>Durée :</th>
+        <th>Date début :</th>
+        <th>Date fin :</th>
+    </tr>
+<?php
 if (!$resultat) {
     print 'Ta requete marche pas';
-} else {
+    ?>
+    </table>
+    <?php
+}
+else {
 
     foreach ($resultat as $r) {
         ?>
-        <table>
-        <caption>Interventions du <?php echo '$resultat["V.DateDebut"]'; ?> au <?php echo '$resultat["V.DateFin"]'; ?>
-            .
-        </caption>
-        <tr>
-            <th>Nom du client :</th>
-            <th>Intervention(s) :</th>
-            <th>Durée :</th>
-        </tr>
+
 
         <tr>
-            <td><?php echo '$resultat["P.nom"]'; ?></td>
-            <td><?php echo '$resultat["A.libellee"]'; ?></td>
-            <td><?php echo '$resultat["A.duree"]'; ?></td>
+            <td><?php echo $r["nom"]; ?></td>
+            <td><?php echo $r["libellee"]; ?></td>
+            <td><?php echo $r["duree"]; ?></td>
+            <td><?php echo $r["DateDebut"]; ?></td>
+            <td><?php echo $r["DateFin"]; ?></td>
         </tr>
     <?php
     }
