@@ -1,7 +1,14 @@
 <?php
 require_once 'Traitement.php';
 $id = $_SESSION['id'];
-$req = $db->prepare('SELECT * FROM Visites V, ActesVisites O, Actes A, Infirmieres I, patient P WHERE O.idVisite=V.id AND O.idActes=A.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id');
+$req = $db->prepare('
+SELECT * FROM Visites AS V
+JOIN patient AS P ON P.identifiant=V.idPatient
+RIGHT JOIN Infirmieres AS I ON V.idInfirmieres = I.id
+JOIN ActesVisites AS AV ON AV.idVisite = V.id
+JOIN Actes AS A ON AV.idActes=A.id
+WHERE I.id=:id
+');
 $req->execute(array('id' => $id));
 $resultat = $req->fetchAll();
 ?>
