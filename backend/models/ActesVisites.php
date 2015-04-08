@@ -41,8 +41,8 @@ class ActesVisites extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idVisite' => 'Id Visite',
-            'idActes' => 'Id Actes',
+            'idVisite' => 'Numéro de Visite',
+            'idActes' => 'Numéro d\'Acte',
             'estFait' => 'Est Fait',
         ];
     }

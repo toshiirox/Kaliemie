@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Soins */
@@ -12,11 +13,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'libel')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'libel')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
 
     <?= $form->field($model, 'id_type_soins')->textInput() ?>
+    <?= $form->field($model, 'id_type_soins')->dropDownList(
+        ArrayHelper::map(app\models\TypeSoins::find()->all(),'id','libel'),
+        ['prompt'=>'Selectionnez un Type']
+    ) ?>
 
     <?= $form->field($model, 'date')->textInput() ?>
 

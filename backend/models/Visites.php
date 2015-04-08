@@ -38,7 +38,7 @@ class Visites extends \yii\db\ActiveRecord
             [['idInfirmieres', 'idPatient', 'DateDebut', 'DateFin'], 'required'],
             [['idInfirmieres', 'idPatient'], 'integer'],
             [['DateDebut', 'DateFin'], 'safe'],
-            [['commentaireVisite'], 'string'],
+            [['nom','commentaireVisite'], 'string'],
             [['idInfirmieres', 'idPatient', 'DateDebut'], 'unique', 'targetAttribute' => ['idInfirmieres', 'idPatient', 'DateDebut'], 'message' => 'The combination of Id Infirmieres, Id Patient and Date Debut has already been taken.']
         ];
     }
@@ -50,8 +50,8 @@ class Visites extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'idInfirmieres' => 'Id Infirmieres',
-            'idPatient' => 'Id Patient',
+            'idInfirmieres' => 'Infirmière',
+            'idPatient' => 'Patient',
             'DateDebut' => 'Date Debut',
             'DateFin' => 'Date Fin',
             'commentaireVisite' => 'Commentaire Visite',
@@ -72,6 +72,14 @@ class Visites extends \yii\db\ActiveRecord
     public function getIdActes()
     {
         return $this->hasMany(Soins::className(), ['id' => 'idActes'])->viaTable('ActesVisites', ['idVisite' => 'id']);
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNomInfirmieres()
+    {
+            return Infirmieres::findOne(idInfirmieres)->nom;
+
     }
 
     /**
