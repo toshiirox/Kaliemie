@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VisitesSearch */
@@ -19,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Visites', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -30,10 +32,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'idPatient',
             'DateDebut',
             'DateFin',
+
+
             // 'commentaireVisite:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?= DatePicker::widget([
+        'model' => $model,
+        'attribute' => 'date',
+        'template' => '{addon}{input}',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'dd-M-yyyy'
+        ]
+    ]);?>
+
 
 </div>
