@@ -18,7 +18,7 @@ class ActesVisitesSearch extends ActesVisites
     public function rules()
     {
         return [
-            [['idVisite', 'idActes'], 'integer'],
+            [['idVisite', 'idActes', 'estFait'], 'integer'],
         ];
     }
 
@@ -57,6 +57,7 @@ class ActesVisitesSearch extends ActesVisites
         $query->andFilterWhere([
             'idVisite' => $this->idVisite,
             'idActes' => $this->idActes,
+            'estFait' => $this->estFait,
         ]);
 
         return $dataProvider;

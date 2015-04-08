@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'idPatient',
             'DateDebut',
             'DateFin',
+            // 'commentaireVisite:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

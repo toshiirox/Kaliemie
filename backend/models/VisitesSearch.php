@@ -19,7 +19,7 @@ class VisitesSearch extends Visites
     {
         return [
             [['id', 'idInfirmieres', 'idPatient'], 'integer'],
-            [['DateDebut', 'DateFin'], 'safe'],
+            [['DateDebut', 'DateFin', 'commentaireVisite'], 'safe'],
         ];
     }
 
@@ -62,6 +62,8 @@ class VisitesSearch extends Visites
             'DateDebut' => $this->DateDebut,
             'DateFin' => $this->DateFin,
         ]);
+
+        $query->andFilterWhere(['like', 'commentaireVisite', $this->commentaireVisite]);
 
         return $dataProvider;
     }

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Visites */
@@ -12,13 +13,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'idInfirmieres')->textInput() ?>
+    <?= $form->field($model, 'idInfirmieres')->dropDownList(
+        ArrayHelper::map(app\models\Infirmieres::find()->all(),'id','nom'),
+        ['prompt'=>'Selectionnez une infirmière']
+    ) ?>
 
-    <?= $form->field($model, 'idPatient')->textInput() ?>
+    <?= $form->field($model, 'idPatient')->dropDownList(
+        ArrayHelper::map(app\models\Patient::find()->all(),'identifiant','nom'),
+        ['prompt'=>'Selectionnez un Patient']
+    ) ?>
 
     <?= $form->field($model, 'DateDebut')->textInput() ?>
 
     <?= $form->field($model, 'DateFin')->textInput() ?>
+
+    <?= $form->field($model, 'commentaireVisite')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

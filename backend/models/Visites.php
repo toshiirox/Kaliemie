@@ -12,6 +12,12 @@ use Yii;
  * @property integer $idPatient
  * @property string $DateDebut
  * @property string $DateFin
+ * @property string $commentaireVisite
+ *
+ * @property ActesVisites[] $actesVisites
+ * @property Soins[] $idActes
+ * @property Infirmieres $idInfirmieres0
+ * @property Patient $idPatient0
  */
 class Visites extends \yii\db\ActiveRecord
 {
@@ -32,8 +38,7 @@ class Visites extends \yii\db\ActiveRecord
             [['idInfirmieres', 'idPatient', 'DateDebut', 'DateFin'], 'required'],
             [['idInfirmieres', 'idPatient'], 'integer'],
             [['DateDebut', 'DateFin'], 'safe'],
-            [['idInfirmieres'], 'unique'],
-            [['idPatient'], 'unique'],
+            [['commentaireVisite'], 'string'],
             [['idInfirmieres', 'idPatient', 'DateDebut'], 'unique', 'targetAttribute' => ['idInfirmieres', 'idPatient', 'DateDebut'], 'message' => 'The combination of Id Infirmieres, Id Patient and Date Debut has already been taken.']
         ];
     }
@@ -49,6 +54,39 @@ class Visites extends \yii\db\ActiveRecord
             'idPatient' => 'Id Patient',
             'DateDebut' => 'Date Debut',
             'DateFin' => 'Date Fin',
+            'commentaireVisite' => 'Commentaire Visite',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getActesVisites()
+    {
+        return $this->hasMany(ActesVisites::className(), ['idVisite' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdActes()
+    {
+        return $this->hasMany(Soins::className(), ['id' => 'idActes'])->viaTable('ActesVisites', ['idVisite' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdInfirmieres0()
+    {
+        return $this->hasOne(Infirmieres::className(), ['id' => 'idInfirmieres']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdPatient0()
+    {
+        return $this->hasOne(Patient::className(), ['identifiant' => 'idPatient']);
     }
 }

@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'idPatient',
             'DateDebut',
             'DateFin',
+            'commentaireVisite:ntext',
         ],
     ]) ?>
 

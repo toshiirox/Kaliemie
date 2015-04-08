@@ -40,7 +40,7 @@ class Infirmieres extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nom' => 'Nom',
-            'prenom' => 'Prenom',
+            'prenom' => 'Prénom',
         ];
     }
 }

@@ -9,6 +9,9 @@ use Yii;
  *
  * @property integer $idInfirmiere
  * @property integer $idActes
+ *
+ * @property Infirmieres $idInfirmiere0
+ * @property Soins $idActes0
  */
 class Capacite extends \yii\db\ActiveRecord
 {
@@ -37,8 +40,24 @@ class Capacite extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idInfirmiere' => 'Id Infirmiere',
-            'idActes' => 'Id Actes',
+            'idInfirmiere' => 'Infirmière',
+            'idActes' => 'Capacité',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdInfirmiere0()
+    {
+        return $this->hasOne(Infirmieres::className(), ['id' => 'idInfirmiere']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdActes0()
+    {
+        return $this->hasOne(Soins::className(), ['id' => 'idActes']);
     }
 }

@@ -13,6 +13,10 @@ use Yii;
  * @property integer $id_type_soins
  * @property string $date
  *
+ * @property ActesVisites[] $actesVisites
+ * @property Visites[] $idVisites
+ * @property Capacite[] $capacites
+ * @property Infirmieres[] $idInfirmieres
  * @property TypeSoins $idTypeSoins
  */
 class Soins extends \yii\db\ActiveRecord
@@ -50,6 +54,38 @@ class Soins extends \yii\db\ActiveRecord
             'id_type_soins' => 'Id Type Soins',
             'date' => 'Date',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getActesVisites()
+    {
+        return $this->hasMany(ActesVisites::className(), ['idActes' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdVisites()
+    {
+        return $this->hasMany(Visites::className(), ['id' => 'idVisite'])->viaTable('ActesVisites', ['idActes' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCapacites()
+    {
+        return $this->hasMany(Capacite::className(), ['idActes' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdInfirmieres()
+    {
+        return $this->hasMany(Infirmieres::className(), ['id' => 'idInfirmiere'])->viaTable('capacite', ['idActes' => 'id']);
     }
 
     /**

@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'idVisite',
             'idActes',
+            'estFait',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
