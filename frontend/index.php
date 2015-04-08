@@ -16,7 +16,7 @@
             <h1 class="page-header">
             </h1>
 
-            <p>YOLO!!!!</p>
+            <p>FUS RO DAH!!!!</p>
         </div>
 
 
