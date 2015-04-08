@@ -12,7 +12,6 @@ $resultat = $req->fetchAll();
     <tr>
         <th>Nom du client : </th>
         <th> Intervention(s) : </th>
-
         <th> Date début : </th>
         <th> Date fin : </th>
     </tr>

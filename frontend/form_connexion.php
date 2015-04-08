@@ -15,7 +15,7 @@ $resultat = $req->fetch();
 if (!$resultat) {
     print 'Erreur de mot de passe ou de login';
     ?>
-    <a href="">retour</a>
+    <a href="index.php">retour</a>
 <?php
 } else {
     session_start();

@@ -17,6 +17,7 @@
             </h1>
 
             <p>FUS RO DAH!!!!</p>
+            <div id='calendar'></div>
         </div>
 
 
