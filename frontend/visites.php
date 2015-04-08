@@ -2,7 +2,7 @@
 require_once 'Traitement.php';
 $id = $_SESSION['id'];
 $req = $db->prepare('
-SELECT * FROM Visites V, ActesVisites O, Actes A, Infirmieres I, patient P WHERE O.idVisite=V.id AND O.idActes=A.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id
+SELECT * FROM Visites V, ActesVisites O, Infirmieres I, patient P, soins S WHERE S.id=O.idActes AND O.idVisite=V.id AND V.idInfirmieres=I.id AND V.idPatient=P.identifiant AND I.id = :id
 ');
 $req->execute(array('id' => $id));
 $resultat = $req->fetchAll();
@@ -12,7 +12,7 @@ $resultat = $req->fetchAll();
     <tr>
         <th>Nom du client : </th>
         <th> Intervention(s) : </th>
-        <th> Durée : </th>
+
         <th> Date début : </th>
         <th> Date fin : </th>
     </tr>
@@ -47,9 +47,9 @@ else {
                 ?>
             </td>
 
-            <td><?php echo utf8_encode($r["libellee"]); ?></td>
+            <td><?php echo utf8_encode($r["libel"]); ?></td>
 
-            <td><?php echo $r["duree"]; ?></td>
+
 
             <td>
                 <?php
