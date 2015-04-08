@@ -17,7 +17,6 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
 
-    <?= $form->field($model, 'id_type_soins')->textInput() ?>
     <?= $form->field($model, 'id_type_soins')->dropDownList(
         ArrayHelper::map(app\models\TypeSoins::find()->all(),'id','libel'),
         ['prompt'=>'Selectionnez un Type']

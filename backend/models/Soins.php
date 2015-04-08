@@ -51,7 +51,7 @@ class Soins extends \yii\db\ActiveRecord
             'id' => 'ID',
             'libel' => 'Libel',
             'description' => 'Description',
-            'id_type_soins' => 'Id Type Soins',
+            'id_type_soins' => 'Type de Soins',
             'date' => 'Date',
         ];
     }

@@ -4,8 +4,69 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "741105054b96194e3bcd61760052a59d",
+    "hash": "9ee07bac5250fdbf3552221b647560d4",
     "packages": [
+        {
+            "name": "2amigos/yii2-date-picker-widget",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-date-picker-widget.git",
+                "reference": "f164b64bb074637f115ea0cd5363bdddd72c7b35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-date-picker-widget/zipball/f164b64bb074637f115ea0cd5363bdddd72c7b35",
+                "reference": "f164b64bb074637f115ea0cd5363bdddd72c7b35",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap-datepicker": "1.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\datepicker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "2amigOS! Consulting Group",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bootstrap DatePicker widget for Yii2.",
+            "homepage": "http://yiiwheels.com/extension/bootstrap-datepicker",
+            "keywords": [
+                "2amigos",
+                "datepicker",
+                "extension",
+                "widget",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2015-03-22 18:47:08"
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.1",
@@ -58,53 +119,34 @@
             ]
         },
         {
-            "name": "bower-asset/fullcalendar",
-            "version": "v2.2.7",
+            "name": "bower-asset/bootstrap-datepicker",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/arshaw/fullcalendar.git",
-                "reference": "aab1068caa23bac6cfa11103d8b644faf6b4a184"
+                "url": "https://github.com/eternicode/bootstrap-datepicker.git",
+                "reference": "e7ca6bb94dc483817f2ff10fc2b723b2b935e016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arshaw/fullcalendar/zipball/aab1068caa23bac6cfa11103d8b644faf6b4a184",
-                "reference": "aab1068caa23bac6cfa11103d8b644faf6b4a184",
+                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/e7ca6bb94dc483817f2ff10fc2b723b2b935e016",
+                "reference": "e7ca6bb94dc483817f2ff10fc2b723b2b935e016",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/jquery": ">=1.7.1",
-                "bower-asset/moment": ">=2.5.0"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.2.0,<3.3",
-                "bower-asset/jasmine-fixture": ">=1.2.0,<1.3",
-                "bower-asset/jasmine-jquery": ">=2.0.3,<2.1",
-                "bower-asset/jquery-mockjax": ">=1.5.4,<1.6",
-                "bower-asset/jquery-simulate-ext": ">=1.3.0,<1.4",
-                "bower-asset/jquery-ui": ">=1.11.1",
-                "bower-asset/moment-timezone": ">=0.2.1,<0.3"
+                "bower-asset/bootstrap": ">=2.0.4,<4.0",
+                "bower-asset/jquery": ">=1.7.1"
             },
             "type": "bower-asset-library",
             "extra": {
                 "bower-asset-main": [
-                    "dist/fullcalendar.js",
-                    "dist/fullcalendar.css"
+                    "dist/css/bootstrap-datepicker.css",
+                    "dist/css/bootstrap-datepicker3.css",
+                    "js/bootstrap-datepicker.js"
                 ],
-                "bower-asset-ignore": [
-                    "*",
-                    "**/.*",
-                    "!/dist/**",
-                    "!/bower.json",
-                    "!/changelog.*",
-                    "!/license.*",
-                    "!/readme.*"
-                ]
+                "bower-asset-ignore": []
             },
-            "description": "Full-sized drag & drop event calendar",
-            "keywords": [
-                "calendar",
-                "event",
-                "full-sized"
+            "license": [
+                "Apache-2.0"
             ]
         },
         {
@@ -226,40 +268,6 @@
                 "mask",
                 "plugins"
             ]
-        },
-        {
-            "name": "bower-asset/moment",
-            "version": "2.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moment/moment.git",
-                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moment/moment/zipball/94ad539f965689289af54b6493abca0a65ab4ce6",
-                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "moment.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests",
-                    "tasks",
-                    "component.json",
-                    "composer.json",
-                    "CONTRIBUTING.md",
-                    "ender.js",
-                    "Gruntfile.js",
-                    "package.js",
-                    "package.json"
-                ]
-            }
         },
         {
             "name": "bower-asset/punycode",
@@ -423,51 +431,6 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
-        },
-        {
-            "name": "philippfrenzel/yii2fullcalendar",
-            "version": "2.2.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/philippfrenzel/yii2fullcalendar.git",
-                "reference": "db1110667430598f8a06a1ecae14648d45de7e72"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/philippfrenzel/yii2fullcalendar/zipball/db1110667430598f8a06a1ecae14648d45de7e72",
-                "reference": "db1110667430598f8a06a1ecae14648d45de7e72",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/fullcalendar": "2.2.* | 2.1.* | 2.0.*",
-                "yiisoft/yii2": "*",
-                "yiisoft/yii2-jui": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "yii2fullcalendar\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT License"
-            ],
-            "authors": [
-                {
-                    "name": "Philipp Frenzel",
-                    "email": "philipp@frenzel.net",
-                    "homepage": "http://www.frenzel.net/",
-                    "role": "Author Version Yii2"
-                }
-            ],
-            "description": "Yii2 fullcalendar Widgets",
-            "homepage": "http://www.frenzel.net/",
-            "keywords": [
-                "fullcalendar",
-                "yii2"
-            ],
-            "time": "2015-02-09 20:01:22"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -848,6 +811,90 @@
     ],
     "packages-dev": [
         {
+            "name": "bower-asset/fullcalendar",
+            "version": "v2.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arshaw/fullcalendar.git",
+                "reference": "aab1068caa23bac6cfa11103d8b644faf6b4a184"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arshaw/fullcalendar/zipball/aab1068caa23bac6cfa11103d8b644faf6b4a184",
+                "reference": "aab1068caa23bac6cfa11103d8b644faf6b4a184",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7.1",
+                "bower-asset/moment": ">=2.5.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": ">=3.2.0,<3.3",
+                "bower-asset/jasmine-fixture": ">=1.2.0,<1.3",
+                "bower-asset/jasmine-jquery": ">=2.0.3,<2.1",
+                "bower-asset/jquery-mockjax": ">=1.5.4,<1.6",
+                "bower-asset/jquery-simulate-ext": ">=1.3.0,<1.4",
+                "bower-asset/jquery-ui": ">=1.11.1",
+                "bower-asset/moment-timezone": ">=0.2.1,<0.3"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/fullcalendar.js",
+                    "dist/fullcalendar.css"
+                ],
+                "bower-asset-ignore": [
+                    "*",
+                    "**/.*",
+                    "!/dist/**",
+                    "!/bower.json",
+                    "!/changelog.*",
+                    "!/license.*",
+                    "!/readme.*"
+                ]
+            },
+            "description": "Full-sized drag & drop event calendar",
+            "keywords": [
+                "calendar",
+                "event",
+                "full-sized"
+            ]
+        },
+        {
+            "name": "bower-asset/moment",
+            "version": "2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moment/moment.git",
+                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moment/moment/zipball/94ad539f965689289af54b6493abca0a65ab4ce6",
+                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "moment.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests",
+                    "tasks",
+                    "component.json",
+                    "composer.json",
+                    "CONTRIBUTING.md",
+                    "ender.js",
+                    "Gruntfile.js",
+                    "package.js",
+                    "package.json"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/typeahead.js",
             "version": "v0.10.5",
             "source": {
@@ -921,6 +968,51 @@
                 "fixtures"
             ],
             "time": "2014-06-04 14:43:02"
+        },
+        {
+            "name": "philippfrenzel/yii2fullcalendar",
+            "version": "2.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/philippfrenzel/yii2fullcalendar.git",
+                "reference": "db1110667430598f8a06a1ecae14648d45de7e72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/philippfrenzel/yii2fullcalendar/zipball/db1110667430598f8a06a1ecae14648d45de7e72",
+                "reference": "db1110667430598f8a06a1ecae14648d45de7e72",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/fullcalendar": "2.2.* | 2.1.* | 2.0.*",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-jui": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii2fullcalendar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp Frenzel",
+                    "email": "philipp@frenzel.net",
+                    "homepage": "http://www.frenzel.net/",
+                    "role": "Author Version Yii2"
+                }
+            ],
+            "description": "Yii2 fullcalendar Widgets",
+            "homepage": "http://www.frenzel.net/",
+            "keywords": [
+                "fullcalendar",
+                "yii2"
+            ],
+            "time": "2015-02-09 20:01:22"
         },
         {
             "name": "phpspec/php-diff",
