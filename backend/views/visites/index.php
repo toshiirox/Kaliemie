@@ -2,8 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use dosamigos\datepicker\DatePicker;
-
+use dosamigos\datepicker\DateRangePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VisitesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -39,15 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?= DatePicker::widget([
-        'model' => $model,
-        'attribute' => 'date',
-        'template' => '{addon}{input}',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'dd-M-yyyy'
-        ]
-    ]);?>
+
+   
+
 
 
 </div>
