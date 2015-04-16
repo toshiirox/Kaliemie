@@ -23,9 +23,17 @@ use yii\helpers\ArrayHelper;
         ['prompt'=>'Selectionnez un Patient']
     ) ?>
 
-    <?= $form->field($model, 'DateDebut')->textInput() ?>
+    <?= $form->field($model, 'DateDebut')->textInput();
+    $aujourdhui = new DateTime();
+    $datevisite = new DateTime($model->DateDebut);
+    $diff=$aujourdhui->diff($datevisite);
+    //print_r($datevisite>$aujourdhui);
+    if ($datevisite>$aujourdhui){include '../gcm_server_php/notifyDBUpdate.php';
+    notify();}
+    else {echo 'pas yo';};?>
 
-    <?= $form->field($model, 'DateFin')->textInput() ?>
+    <?= $form->field($model, 'DateFin')->textInput(); ?>
+
 
     <?= $form->field($model, 'commentaireVisite')->textarea(['rows' => 6]) ?>
 
